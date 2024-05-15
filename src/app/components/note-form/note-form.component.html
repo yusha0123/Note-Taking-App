@@ -1,0 +1,25 @@
+<div
+  class="card w-[95%] sm:w-[75%] md:w-[60%] lg:w-[45%] max-w-xl bg-base-100 shadow-lg mx-auto"
+>
+  <div class="card-body">
+    <h2 class="card-title mx-auto">Add a Note</h2>
+    <form
+      class="py-4 flex flex-col w-full gap-y-3 md:gap-y-4"
+      [formGroup]="noteForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <input
+        type="text"
+        placeholder="Title"
+        formControlName="title"
+        class="input input-bordered w-full"
+      />
+      <textarea
+        class="textarea textarea-bordered w-full"
+        formControlName="content"
+        placeholder="Content"
+      ></textarea>
+      <button class="btn btn-primary" type="submit">Add Note</button>
+    </form>
+  </div>
+</div>
