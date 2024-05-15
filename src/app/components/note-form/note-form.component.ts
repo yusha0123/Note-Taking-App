@@ -24,7 +24,7 @@ export class NoteFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.noteForm = this.formBuilder.group({
-      id: 1,
+      id: new Date().getTime(),
       title: ['', Validators.required],
       content: '',
     });
@@ -34,7 +34,8 @@ export class NoteFormComponent implements OnInit {
     if (this.noteForm.invalid) return;
 
     const note: Note = this.noteForm.value;
-    console.log(note);
+    this.noteService.createNote(note);
+
     this.noteForm.reset();
   }
 }

@@ -7,9 +7,10 @@ import { NoteListComponent } from './components/note-list/note-list.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NoteService } from './services/note.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
-  declarations: [AppComponent, NoteFormComponent, NoteListComponent],
+  declarations: [AppComponent, NoteFormComponent, NoteListComponent, ModalComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
