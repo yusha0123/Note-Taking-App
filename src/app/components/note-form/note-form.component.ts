@@ -12,7 +12,6 @@ import { NoteService } from 'src/app/services/note.service';
 @Component({
   selector: 'app-note-form',
   templateUrl: './note-form.component.html',
-  styleUrls: ['./note-form.component.css'],
 })
 export class NoteFormComponent implements OnInit {
   noteForm!: FormGroup;

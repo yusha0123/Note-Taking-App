@@ -6,10 +6,10 @@ import { ModalComponent } from '../modal/modal.component';
 @Component({
   selector: 'app-note-list',
   templateUrl: './note-list.component.html',
-  styleUrls: ['./note-list.component.css'],
 })
 export class NoteListComponent implements OnInit {
   notes: Note[] = [];
+  selectedNote: Note | null = null;
   @ViewChild(ModalComponent) modalComponent!: ModalComponent;
 
   constructor(private noteService: NoteService) {}
@@ -22,9 +22,18 @@ export class NoteListComponent implements OnInit {
 
   editNote(note: Note): void {
     this.modalComponent.openModal();
+    this.selectedNote = note;
   }
 
   deleteNote(id: number): void {
     this.noteService.deleteNote(id);
+  }
+
+  updateNote(note: Note): void {
+    const index = this.notes.findIndex((n) => n.id === note.id);
+    if (index !== -1) {
+      this.notes[index] = { ...note };
+    }
+    this.selectedNote = null;
   }
 }
